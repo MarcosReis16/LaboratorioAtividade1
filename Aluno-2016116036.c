@@ -17,11 +17,12 @@
 //  Semestre: 5
 
 //  Copyright © 2016 Renato Novais. All rights reserved.
-// Última atualização: 24/06/2018
+// Última atualização: 24/06/2018 - 25/06/2018
 
 // #################################################
 
 #include <stdio.h>
+#include <string.h>
 
 
 
@@ -36,15 +37,38 @@
     1 -> se data válida
  */
 int q1(char *data){
-    int datavalida = 1;
+    int datavalida = 1; //Variável que valida a Data.
+    int contador = 0; // Variável contadora
+    int condicional = 0;// Variável de controle do While.
+
+    while(condicional==0){
+        if (strlen(data)) > 8{
+            datavalida = 0;
+            condicional = 1;
+        }
+        else {
+            for (int i = 0;i<=strlen(data)){
+                if data[i] == "/"{
+                    contador = contador+1;
+                }
+            }
+            if (contador != 2){
+                datavalida = 0;
+                condicional = 1;
+            }
+
+        }
+
+    condicional = 1;
+
+    }
+
+
 
     //printf("%s\n", data);
 
 
-    if (datavalida)
-        return 1;
-    else
-        return 0;
+    return (datavalida);
 
 }
 
