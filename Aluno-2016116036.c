@@ -22,6 +22,7 @@
 // #################################################
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 
@@ -39,33 +40,37 @@
 int q1(char *data){
     int datavalida = 1; //Variável que valida a Data.
     int contador = 0; // Variável contadora
-    int condicional = 0;// Variável de controle do While.
+    int dataForm[2],i; // Vetor que vai receber a data após ser convertida para inteiros.
+    char *token;
 
-    while(condicional==0){
-        if (strlen(data)) > 8{
+
+    if (strlen(data)) > 8{
+        datavalida = 0;
+    }
+    else {
+        for (int i = 0;i<=strlen(data)){
+            if data[i] == "/"{
+                contador = contador+1;
+            }
+        }
+        if (contador != 2){
             datavalida = 0;
-            condicional = 1;
         }
         else {
-            for (int i = 0;i<=strlen(data)){
-                if data[i] == "/"{
-                    contador = contador+1;
-                }
-            }
-            if (contador != 2){
+            token = strtok(data,"/");
+            if (token == NULL){
                 datavalida = 0;
-                condicional = 1;
             }
+
+            while (token != NULL){
+
+            }
+
+
 
         }
 
-    condicional = 1;
-
     }
-
-
-
-    //printf("%s\n", data);
 
 
     return (datavalida);
