@@ -10,7 +10,7 @@ char* converteMaiusculo(char *palavra){
         }
     }
 
-    return palavra
+    return *palavra
 }
 
 char* converteMinusculo(char *palavra){
@@ -22,5 +22,5 @@ char* converteMinusculo(char *palavra){
         }
     }
 
-    return palavra
+    return *palavra
 }

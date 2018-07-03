@@ -102,8 +102,8 @@ int q3(char *texto, char c, int caseSensitive){
     while(i!="O/"){
 
         if (caseSensitive == 0){
-            texto = converteMaiusculo(&texto);
-            c = converteMaiusculo(&c);
+            texto = converteMaiusculo(texto);
+            c = converteMaiusculo(c);
         }
 
         if (texto[i]==c){
