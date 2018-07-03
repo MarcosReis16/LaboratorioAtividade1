@@ -17,13 +17,14 @@
 //  Semestre: 5
 
 //  Copyright © 2016 Renato Novais. All rights reserved.
-// Última atualização: 24/06/2018 - 25/06/2018
+// Última atualização: 24/06/2018 - 01/07/2018
 
 // #################################################
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "ModuloFuncoes.h"
 
 
 
@@ -38,37 +39,9 @@
     1 -> se data válida
  */
 int q1(char *data){
-    int datavalida = 1; //Variável que valida a Data.
-    int contador = 0; // Variável contadora
-    int dataForm[2],i; // Vetor que vai receber a data após ser convertida para inteiros.
-    char *token;
-
-
-    if (strlen(data)) > 8{
-        datavalida = 0;
-    }
-    else {
-        for (int i = 0;i<=strlen(data)){
-            if data[i] == "/"{
-                contador = contador+1;
-            }
-        }
-        if (contador != 2){
-            datavalida = 0;
-        }
-        else {
-            token = strtok(data,"/");
-            if (token == NULL){
-                datavalida = 0;
-            }
-
-            while (token != NULL){
-
-            }
 
 
 
-        }
 
     }
 
@@ -122,9 +95,22 @@ int q2(char *datainicial, char *datafinal, int *qtdDias, int *qtdMeses, int *qtd
  @saida
     Um número n >= 0.
  */
-int q3(char *texto, char c, int isCaseSensitive){
-    int qtdOcorrencias = -1;
+int q3(char *texto, char c, int caseSensitive){
+    int qtdOcorrencias = 0
+    int i = 0;
 
+    while(i!="O/"){
+
+        if (caseSensitive == 0){
+            texto = converteMaiusculo(&texto);
+            c = converteMaiusculo(&c);
+        }
+
+        if (texto[i]==c){
+            qtdOcorrencias = qtdOcorrencias +1;
+        }
+
+    }
     return qtdOcorrencias;
 
 }

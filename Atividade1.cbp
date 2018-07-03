@@ -35,6 +35,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Aluno-2016116036.h" />
+		<Unit filename="ModuloFuncoes.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ModuloFuncoes.h" />
 		<Unit filename="corretor.c">
 			<Option compilerVar="CC" />
 		</Unit>
