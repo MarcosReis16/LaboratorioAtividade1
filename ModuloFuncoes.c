@@ -24,3 +24,8 @@ char* converteMinusculo(char *palavra){
 
     return *palavra
 }
+
+char* converteIntString(int *valor){
+
+
+}

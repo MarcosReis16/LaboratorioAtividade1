@@ -17,7 +17,7 @@
 //  Semestre: 5
 
 //  Copyright © 2016 Renato Novais. All rights reserved.
-// Última atualização: 24/06/2018 - 01/07/2018
+// Última atualização: 24/06/2018 - 06/07/2018
 
 // #################################################
 
@@ -133,6 +133,7 @@ int q3(char *texto, char c, int caseSensitive){
 int q4(char *strTexto, char *strBusca, int posicoes[30]){
     int qtdOcorrencias = -1;
 
+
     return qtdOcorrencias;
 
 }
@@ -148,8 +149,15 @@ int q4(char *strTexto, char *strBusca, int posicoes[30]){
  */
 
 int q5(int num){
-
-    return num;
+    if (num == 0)
+        return num;
+    else
+    {
+        printf("%d", n % 10);
+        num = num/10;
+        return q5(num);
+    }
+    return 0;
 }
 
 /*
