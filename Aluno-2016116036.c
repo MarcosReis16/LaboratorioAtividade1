@@ -153,7 +153,7 @@ int q5(int num){
         return num;
     else
     {
-        printf("%d", n % 10);
+        printf("%d", num % 10);
         num = num/10;
         return q5(num);
     }
