@@ -149,15 +149,18 @@ int q4(char *strTexto, char *strBusca, int posicoes[30]){
  */
 
 int q5(int num){
-    if (num == 0)
-        return num;
-    else
+    int retorno = 0;
+    int i = 1;
+
+    while (i<=n)
     {
-        printf("%d", num % 10);
-        num = num/10;
-        return q5(num);
+        retorno *= 10;
+        retorno +=(n%(i*10)-n%i)/i;
+        i*=10;
+
     }
-    return 0;
+
+    return retorno;
 }
 
 /*
