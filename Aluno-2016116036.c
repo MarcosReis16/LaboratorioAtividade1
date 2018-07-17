@@ -39,12 +39,32 @@
     1 -> se data válida
  */
 int q1(char *data){
+    int i, dia, mes, ano, cont, cont2, datavalida;
+    char aux[4];
 
-
-
-
+    for (i=0;i!="\0";i++){
+        if (data[i]=="/"){
+            if (cont2==0){
+                dia = atoi(*aux);
+            }
+            else if(cont2==1){
+                mes = atoi(*aux);
+            }
+            else{
+                ano = atoi(*aux);
+            }
+            cont2++;
+            i++;
+            cont = 0;
+        }
+        else {
+            aux[cont]==data[i];
+            i++;
+            cont++;
+        }
     }
 
+    datavalida = validaData(dia,mes,ano);
 
     return (datavalida);
 
@@ -164,7 +184,7 @@ int q5(int num){
 }
 
 /*
- Q5 = ocorrência de um número em outro
+ Q6 = ocorrência de um número em outro
  @objetivo
     Verificar quantidade de vezes da ocorrência de um número em outro
  @entrada
