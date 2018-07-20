@@ -39,7 +39,7 @@
     1 -> se data válida
  */
 int q1(char *data){
-    int i, dia, mes, ano, cont, cont2, datavalida;
+    int i, j, dia, mes, ano, cont, cont2, cont3, datavalida;
     char aux[4];
 
     for (i=0;i!="\0";i++){
@@ -51,7 +51,14 @@ int q1(char *data){
                 mes = atoi(*aux);
             }
             else{
-                ano = atoi(*aux);
+                for(j=0;aux[j]!='\0';j++){
+                    cont3 += cont3;
+                }
+                if (cont3 == 2 || cont3 == 4)
+                    ano = atoi(*aux);
+                    datavalida = validaData(dia,mes,ano);
+                else
+                    datavalida = 0;
             }
             cont2++;
             i++;
@@ -63,8 +70,6 @@ int q1(char *data){
             cont++;
         }
     }
-
-    datavalida = validaData(dia,mes,ano);
 
     return (datavalida);
 

@@ -18,7 +18,7 @@
 #include<string.h>
 
 //renomeie o arquivo do include abaixo para aluno-<MATRICULA>.c
-#include "aluno1.h"
+#include "Aluno-2016116036.h"
 
 void testSomar(); //função utilizada para testes
 void testFatorial(); //função utilizada para testes
@@ -30,14 +30,14 @@ void testQ5();
 void testQ6();
 
 int main(){
-    testSomar();
-    testFatorial();
+    //testSomar();
+    //testFatorial();
     testQ1();
-    testQ2();
-    testQ3();
-    testQ4();
-    testQ5();
-    testQ6();
+    //testQ2();
+    //testQ3();
+    //testQ4();
+    //testQ5();
+    //testQ6();
 }
 
 
