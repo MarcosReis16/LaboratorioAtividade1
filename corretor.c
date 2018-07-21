@@ -19,15 +19,16 @@
 
 //renomeie o arquivo do include abaixo para aluno-<MATRICULA>.c
 #include "Aluno-2016116036.h"
+#include "ModuloFuncoes.h"
 
-void testSomar(); //função utilizada para testes
-void testFatorial(); //função utilizada para testes
+//void testSomar(); //função utilizada para testes
+//void testFatorial(); //função utilizada para testes
 void testQ1();
-void testQ2();
-void testQ3();
-void testQ4();
-void testQ5();
-void testQ6();
+//void testQ2();
+//void testQ3();
+//void testQ4();
+//void testQ5();
+//void testQ6();
 
 int main(){
     //testSomar();
@@ -39,7 +40,7 @@ int main(){
     //testQ5();
     //testQ6();
 }
-
+/*
 
 void testSomar(){
     printf("%d\n",somar(3, 4) == 7);
@@ -54,7 +55,7 @@ void testFatorial(){
     printf("%d\n",fatorial(1) == 1);
     printf("%d\n",fatorial(5) == 120);
 }
-
+*/
 void testQ1(){
     char str[11];
     strcpy(str,"29/02/2015");

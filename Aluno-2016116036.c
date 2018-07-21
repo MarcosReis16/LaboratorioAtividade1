@@ -17,7 +17,7 @@
 //  Semestre: 5
 
 //  Copyright © 2016 Renato Novais. All rights reserved.
-// Última atualização: 24/06/2018 - 06/07/2018
+// Última atualização: 24/06/2018 - 20/07/2018
 
 // #################################################
 
@@ -41,22 +41,32 @@
 int q1(char *data){
     int i, j, dia, mes, ano, cont, cont2, cont3, datavalida;
     char aux[4];
-
+    cont2=0;
     for (i=0;i!="\0";i++){
         if (data[i]=="/"){
             if (cont2==0){
-                dia = atoi(*aux);
+                dia = atoi(aux);
             }
             else if(cont2==1){
-                mes = atoi(*aux);
+                mes = atoi(aux);
             }
             else{
                 for(j=0;aux[j]!='\0';j++){
                     cont3 += cont3;
                 }
-                if (cont3 == 2 || cont3 == 4)
-                    ano = atoi(*aux);
+                if (cont3 == 2 || cont3 == 4){
+                    ano = atoi(aux);
+                    if(cont3 == 2){
+                        if(ano>=0 && ano<=18){
+                            ano += 2000;
+                        }
+                        else{
+                            ano+=1900;
+                        }
+                    }
+
                     datavalida = validaData(dia,mes,ano);
+                }
                 else
                     datavalida = 0;
             }
@@ -121,10 +131,10 @@ int q2(char *datainicial, char *datafinal, int *qtdDias, int *qtdMeses, int *qtd
     Um número n >= 0.
  */
 int q3(char *texto, char c, int caseSensitive){
-    int qtdOcorrencias = 0
+    int qtdOcorrencias = 0;
     int i = 0;
 
-    while(i!="O/"){
+    while(i!="\0"){
 
         if (caseSensitive == 0){
             texto = converteMaiusculo(texto);
@@ -173,7 +183,7 @@ int q4(char *strTexto, char *strBusca, int posicoes[30]){
     Número invertido
  */
 
-int q5(int num){
+int q5(int n){
     int retorno = 0;
     int i = 1;
 
