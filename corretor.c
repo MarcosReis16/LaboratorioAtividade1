@@ -21,14 +21,14 @@
 #include "Aluno-2016116036.h"
 #include "ModuloFuncoes.h"
 
-//void testSomar(); //função utilizada para testes
-//void testFatorial(); //função utilizada para testes
+void testSomar(); //função utilizada para testes
+void testFatorial(); //função utilizada para testes
 void testQ1();
-//void testQ2();
-//void testQ3();
-//void testQ4();
-//void testQ5();
-//void testQ6();
+void testQ2();
+void testQ3();
+void testQ4();
+void testQ5();
+void testQ6();
 
 int main(){
     //testSomar();

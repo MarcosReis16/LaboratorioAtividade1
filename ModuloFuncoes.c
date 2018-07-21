@@ -4,7 +4,7 @@
 char* converteMaiusculo(char *palavra){
     int i;
 
-    for (i=0;palavra[i]!="\0";i++){
+    for (i=0;palavra[i]!='\0';i++){
         if (palavra[i] >= 97 && palavra[i] <= 122) {
             palavra[i] = palavra[i]-32;
         }
@@ -16,7 +16,7 @@ char* converteMaiusculo(char *palavra){
 char* converteMinusculo(char *palavra){
     int i;
 
-    for (i=0;palavra[i]!="\0";i++){
+    for (i=0;palavra[i]!='\0';i++){
         if (palavra[i] >= 65 && palavra[i] <= 90) {
             palavra[i] = palavra[i]+32;
         }

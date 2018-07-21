@@ -42,7 +42,7 @@ int q1(char *data){
     int i, j, dia, mes, ano, cont, cont2, cont3, datavalida;
     char aux[4];
     cont2=0;
-    for (i=0;i!="\0";i++){
+    for (i=0;data[i]!='\0';i++){
         if (data[i]=="/"){
             if (cont2==0){
                 dia = atoi(aux);
@@ -134,17 +134,19 @@ int q3(char *texto, char c, int caseSensitive){
     int qtdOcorrencias = 0;
     int i = 0;
 
-    while(i!="\0"){
+    while(i!='\0'){
 
         if (caseSensitive == 0){
-            texto = converteMaiusculo(texto);
-            c = converteMaiusculo(c);
+            if (converteMaiusculo(texto[i])==converteMaiusculo(c)){
+                qtdOcorrencias += 1;
+            }
         }
+        else{
 
-        if (texto[i]==c){
-            qtdOcorrencias = qtdOcorrencias +1;
+            if (texto[i]==c){
+                qtdOcorrencias += 1;
+            }
         }
-
     }
     return qtdOcorrencias;
 
