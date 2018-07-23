@@ -26,8 +26,6 @@
 #include <string.h>
 #include "ModuloFuncoes.h"
 
-
-
 /*
  Q1 = validar data
 @objetivo
@@ -39,47 +37,58 @@
     1 -> se data válida
  */
 int q1(char *data){
-    int i, j, dia, mes, ano, cont, cont2, cont3, datavalida;
-    char aux[4];
-    cont2=0;
-    for (i=0;data[i]!='\0';i++){
-        if (data[i]=="/"){
-            if (cont2==0){
-                dia = atoi(aux);
-            }
-            else if(cont2==1){
-                mes = atoi(aux);
-            }
-            else{
-                for(j=0;aux[j]!='\0';j++){
-                    cont3 += cont3;
-                }
-                if (cont3 == 2 || cont3 == 4){
-                    ano = atoi(aux);
-                    if(cont3 == 2){
-                        if(ano>=0 && ano<=18){
-                            ano += 2000;
-                        }
-                        else{
-                            ano+=1900;
-                        }
-                    }
 
-                    datavalida = validaData(dia,mes,ano);
-                }
-                else
-                    datavalida = 0;
-            }
-            cont2++;
-            i++;
-            cont = 0;
-        }
-        else {
-            aux[cont]==data[i];
-            i++;
+    int datavalida = 1;
+    char dia[3], mes[3], ano[5];
+    int cont,i,j;
+    cont = i = j = 0;
+    int iDia, iMes, iAno;
+
+    while (data[i]!='\0'){
+        if(data[i]=='/'){
             cont++;
+            j=0;
+
+        }
+        else{
+            if (cont == 0){
+                dia[j]=data[i];
+                j++;
+                if (j=2){
+                    dia[j]='\0';
+                }
+            }
+            else if (cont == 1){
+                mes[j]=data[i];
+                j++;
+                if (j=2){
+                    dia[j]='\0';
+                }
+            }
+            else if (cont == 2){
+                ano[j]=data[i];
+                j++;
+            }
         }
     }
+
+    ano[j]=='\0';
+
+    iDia=atoi(dia);
+    iMes=atoi(mes);
+    iAno=atoi(ano);
+
+    if (iAno>=0 && iAno<=18){
+        iAno += 2000;
+    }
+    else if (iAno>=19 && iAno<=99){
+        iAno += 1900;
+    }
+
+    datavalida = validaData(iDia,iMes,iAno);
+
+
+
 
     return (datavalida);
 
@@ -103,10 +112,6 @@ int q2(char *datainicial, char *datafinal, int *qtdDias, int *qtdMeses, int *qtd
     nDias = nDias;
     nMeses = nMeses;
     nAnos = nAnos;
-
-
-
-
 
     *qtdDias = nDias;
     *qtdAnos = nAnos;
@@ -134,7 +139,7 @@ int q3(char *texto, char c, int caseSensitive){
     int qtdOcorrencias = 0;
     int i = 0;
 
-    while(i!='\0'){
+    while(texto[i]!='\0'){
 
         if (caseSensitive == 0){
             if (converteMaiusculo(texto[i])==converteMaiusculo(c)){
