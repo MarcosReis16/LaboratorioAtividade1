@@ -25,6 +25,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "ModuloFuncoes.h"
+#include <ctype.h>
 
 /*
  Q1 = validar data
@@ -37,46 +38,46 @@
     1 -> se data válida
  */
 int q1(char *data){
-
     int datavalida = 1;
-    char dia[3], mes[3], ano[5];
-    int cont,i,j;
-    cont = i = j = 0;
-    int iDia, iMes, iAno;
+	char dia[3];
+	char mes[3];
+	char ano[5];
+	int barra=0, k=0, i=0;
 
-    while (data[i]!='\0'){
+	int iDia, iMes, iAno;
+
+	while(data[i]!='\0'){
         if(data[i]=='/'){
-            cont++;
-            j=0;
-
+            barra++;
+            k=0;
         }
-        else{
-            if (cont == 0){
-                dia[j]=data[i];
-                j++;
-                if (j=2){
-                    dia[j]='\0';
-                }
-            }
-            else if (cont == 1){
-                mes[j]=data[i];
-                j++;
-                if (j=2){
-                    dia[j]='\0';
-                }
-            }
-            else if (cont == 2){
-                ano[j]=data[i];
-                j++;
-            }
+        if(barra==0){
+            dia[k]=data[i];
+            dia[k+1]='\0';
+            k++;
         }
+        else if(barra == 1){
+            if(data[i]=='/'){
+                i++;
+            }
+            mes[k]=data[i];
+            mes[k+1]='\0';
+            k++;
+        }
+        else if(barra == 2){
+            if(data[i]=='/'){
+                i++;
+            }
+            ano[k]=data[i];
+            ano[k+1]='\0';
+            k++;
+        }
+        i++;
     }
 
-    ano[j]=='\0';
-
-    iDia=atoi(dia);
-    iMes=atoi(mes);
-    iAno=atoi(ano);
+	iDia=atoi(dia);
+	iMes=atoi(mes);
+	iAno=atoi(ano);
 
     if (iAno>=0 && iAno<=18){
         iAno += 2000;
@@ -135,24 +136,31 @@ int q2(char *datainicial, char *datafinal, int *qtdDias, int *qtdMeses, int *qtd
  @saida
     Um número n >= 0.
  */
-int q3(char *texto, char c, int caseSensitive){
-    int qtdOcorrencias = 0;
-    int i = 0;
+int q3(char *texto, char c, int isCaseSensitive){
+    	int cont=0, tam=0;
+	int qtdOcorrencias = 0;
+	tam=strlen(texto);
 
-    while(texto[i]!='\0'){
+	if (isCaseSensitive == 1){
+		cont=0;
+		while(cont <= tam){
+			if(c == texto[cont]){
+				qtdOcorrencias++;
 
-        if (caseSensitive == 0){
-            if (converteMaiusculo(texto[i])==converteMaiusculo(c)){
-                qtdOcorrencias += 1;
-            }
-        }
-        else{
+			}
+		cont++;
+ 		}
+	}
 
-            if (texto[i]==c){
-                qtdOcorrencias += 1;
-            }
-        }
-    }
+	else if (isCaseSensitive != 1){
+				cont=0;
+		while(cont <= tam){
+			if(texto[cont] == toupper(c) || texto[cont] == tolower(c)){
+				qtdOcorrencias++;
+			}
+		    	cont++;
+ 			}
+	}
     return qtdOcorrencias;
 
 }
@@ -216,6 +224,58 @@ int q5(int n){
  */
 
 int q6(int numerobase, int numerobusca){
-    int qtdOcorrencias;
+    int qtdOcorrencias=0;
+    int vetBase[300];
+    int vetBusca[300];
+    int contBase=0, i=0, j=0, control=0;
+    int contBusca=0;
+
+
+	while(numerobase>=0){//preenchendo vetor de int numerobase
+		if(numerobase < 10 && numerobase >= 0 ){
+			vetBase[contBase]=numerobase;
+			break;
+		}
+		else{
+			vetBase[contBase]=numerobase%10;
+			numerobase=numerobase/10;
+			contBase++;
+		}
+	}
+	while(numerobusca>=0){//preenchendo vetor de int numerobusca
+		if(numerobusca < 10 && numerobase >= 0){
+			vetBusca[contBusca]=numerobusca;
+			break;
+		}
+		else{
+			vetBusca[contBusca]=numerobusca%10;
+			numerobusca=numerobusca/10;
+			contBusca++;
+		}
+	}
+	//buscando ocorrencias no vetor
+	for (int i = 0; i <= contBase; ++i){
+		if(contBusca == 0){
+			if (vetBusca[0] == vetBase[i]){
+				qtdOcorrencias++;
+			}
+		}
+		else{
+			if(vetBusca[j] == vetBase[i]){
+				control=1;
+				j++;
+			}
+			else if (vetBusca[j] != vetBase[i]){
+				control=0;
+				j=0;
+			}
+			if(control == 1 && j == contBusca){
+				control=0;
+				j=0;
+				qtdOcorrencias++;
+			}
+		}
+	}
     return qtdOcorrencias;
 }
+
