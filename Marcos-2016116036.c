@@ -39,57 +39,9 @@
  */
 int q1(char *data){
     int datavalida = 1;
-	char dia[3];
-	char mes[3];
-	char ano[5];
-	int barra=0, k=0, i=0;
 
-	int iDia, iMes, iAno;
-
-	while(data[i]!='\0'){
-        if(data[i]=='/'){
-            barra++;
-            k=0;
-        }
-        if(barra==0){
-            dia[k]=data[i];
-            dia[k+1]='\0';
-            k++;
-        }
-        else if(barra == 1){
-            if(data[i]=='/'){
-                i++;
-            }
-            mes[k]=data[i];
-            mes[k+1]='\0';
-            k++;
-        }
-        else if(barra == 2){
-            if(data[i]=='/'){
-                i++;
-            }
-            ano[k]=data[i];
-            ano[k+1]='\0';
-            k++;
-        }
-        i++;
-    }
-
-	iDia=atoi(dia);
-	iMes=atoi(mes);
-	iAno=atoi(ano);
-
-    if (iAno>=0 && iAno<=18){
-        iAno += 2000;
-    }
-    else if (iAno>=19 && iAno<=99){
-        iAno += 1900;
-    }
-
-    datavalida = validaData(iDia,iMes,iAno);
-
-
-
+    Date dataquebrada = quebraData(data);
+    datavalida = validaData(dataquebrada.dia,dataquebrada.mes,dataquebrada.ano);
 
     return (datavalida);
 

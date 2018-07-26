@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "ModuloFuncoes.h"
 
 char converteMaiusculo(char palavra){
     int i;
@@ -78,4 +79,56 @@ int validaData(int dia, int mes, int ano){
 	return validado;
 }
 
+Date quebraData(char *data){
+    char dia[3];
+	char mes[3];
+	char ano[5];
+	int barra=0, k=0, i=0;
+
+	Date datainteira;
+
+	while(data[i]!='\0'){
+        if(data[i]=='/'){
+            barra++;
+            k=0;
+        }
+        if(barra==0){
+            dia[k]=data[i];
+            dia[k+1]='\0';
+            k++;
+        }
+        else if(barra == 1){
+            if(data[i]=='/'){
+                i++;
+            }
+            mes[k]=data[i];
+            mes[k+1]='\0';
+            k++;
+        }
+        else if(barra == 2){
+            if(data[i]=='/'){
+                i++;
+            }
+            ano[k]=data[i];
+            ano[k+1]='\0';
+            k++;
+        }
+        i++;
+    }
+
+	datainteira.dia=atoi(dia);
+	datainteira.mes=atoi(mes);
+	datainteira.ano=atoi(ano);
+
+    if (datainteira.ano>=0 && datainteira.ano<=18){
+        datainteira.ano += 2000;
+    }
+    else if (datainteira.ano>=19 && datainteira.ano<=99){
+        datainteira.ano += 1900;
+    }
+
+
+    return datainteira;
+
+}
 

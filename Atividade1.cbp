@@ -31,10 +31,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="Aluno-2016116036.c">
+		<Unit filename="Marcos-2016116036.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Aluno-2016116036.h" />
+		<Unit filename="Marcos-2016116036.h" />
 		<Unit filename="ModuloFuncoes.c">
 			<Option compilerVar="CC" />
 		</Unit>

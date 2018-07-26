@@ -1,16 +1,16 @@
 // #################################################
 //  Instituto Federal da Bahia
 //  Salvador - BA
-//  Curso de AnÃ¡lise e Desenvolvimento de Sistemas http://ads.ifba.edu.br
-//  Disciplina: INF029 - LaboratÃ³rio de ProgramaÃ§Ã£o
+//  Curso de Análise e Desenvolvimento de Sistemas http://ads.ifba.edu.br
+//  Disciplina: INF029 - Laboratório de Programação
 //  Professor: Renato Novais - renato@ifba.edu.br
 
-//  ----- OrientaÃ§Ãµes gerais -----
-//  DescriÃ§Ã£o: esse arquivo contÃ©m exemplos de testes das questÃµes do trabalho.
+//  ----- Orientações gerais -----
+//  Descrição: esse arquivo contém exemplos de testes das questões do trabalho.
 //  o aluno pode incrementar os testes
 
-//  Copyright Â© 2016 Renato Novais. All rights reserved.
-// Ãšltima atualizaÃ§Ã£o: 19/08/2016
+//  Copyright © 2016 Renato Novais. All rights reserved.
+// Última atualização: 19/08/2016
 
 // #################################################
 
@@ -22,8 +22,8 @@
 #include "Marcos-2016116036.h"
 #include "ModuloFuncoes.h"
 
-void testSomar(); //funÃ§Ã£o utilizada para testes
-void testFatorial(); //funÃ§Ã£o utilizada para testes
+void testSomar(); //função utilizada para testes
+void testFatorial(); //função utilizada para testes
 void testQ1();
 void testQ2();
 void testQ3();
@@ -34,10 +34,10 @@ void testQ6();
 int main(){
     //testSomar();
     //testFatorial();
-    //testQ1();
+    testQ1();
     //testQ2();
     //testQ3();
-    testQ4();
+    //testQ4();
     //testQ5();
     //testQ6();
 
@@ -142,7 +142,7 @@ void testQ4(){
     for (i = 0; i<30; i++){
         posicoes[i] = -1;
     }
-    strcpy(strTexto,"Laboratorio de programacao: para ratos de programaÃ§Ã£o");
+    strcpy(strTexto,"Laboratorio de programacao: para ratos de programação");
     strcpy(strBusca,"rato");
     printf("%d\n",q4(strTexto, strBusca, posicoes) == 2);
     printf("%d\n",posicoes[0]==5);
@@ -154,7 +154,7 @@ void testQ4(){
     for (i = 0; i<30; i++){
         posicoes[i] = -1;
     }
-    strcpy(strTexto,"OlÃ¡, o mundo Ã© muito grande. Tem muitas pessoas, e muitos problemas");
+    strcpy(strTexto,"Olá, o mundo é muito grande. Tem muitas pessoas, e muitos problemas");
     strcpy(strBusca,"mui");
     printf("%d\n",q4(strTexto, strBusca, posicoes) == 3);
     printf("%d\n",posicoes[0]==16);
