@@ -19,7 +19,7 @@
 #include <string.h>
 
 //renomeie o arquivo do include abaixo para aluno-<MATRICULA>.c
-#include "Aluno-2016116036.h"
+#include "Marcos-2016116036.h"
 #include "ModuloFuncoes.h"
 
 void testSomar(); //função utilizada para testes
