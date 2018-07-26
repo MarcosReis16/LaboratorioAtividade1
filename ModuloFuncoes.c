@@ -45,25 +45,10 @@ int validaData(int dia, int mes, int ano){
 
 	}
 	else if (mes==2){
-        if (ano%4==0){
-            if (ano%100==0){
-                if(ano%400==0){
-                    if(dia<1 || dia>29){
-                        validado = 0;
-                    }
-                }
-                else{
-                    if(dia<1 || dia>28){
-                        validado = 0;
-                    }
-                }
+        if (verificaBissexto(ano)){
+            if(dia<1 || dia>29){
+                validado = 0;
             }
-            else{
-                if(dia<1 || dia>29){
-                    validado = 0;
-                }
-            }
-
         }
         else{
             if(dia<1 || dia>28){
@@ -129,6 +114,26 @@ Date quebraData(char *data){
 
 
     return datainteira;
+
+}
+
+int verificaBissexto(int ano){
+
+        if (ano%4==0){
+            if (ano%100==0){
+                if(ano%400==0){
+                    return 1;
+                }
+                else{
+                    return 0;
+                }
+            }
+            else{
+                return 1;
+            }
+
+        }
+        return 0;
 
 }
 

@@ -60,15 +60,71 @@ int q1(char *data){
     4 -> datainicial > datafinal
  */
 int q2(char *datainicial, char *datafinal, int *qtdDias, int *qtdMeses, int *qtdAnos){
-    int nDias, nMeses, nAnos;
+    int nDias, nMeses, nAnos, validainicio, validafim;
 
-    nDias = nDias;
-    nMeses = nMeses;
-    nAnos = nAnos;
+    Date datainicio, datafim;
 
-    *qtdDias = nDias;
-    *qtdAnos = nAnos;
-    *qtdMeses = nMeses;
+    *qtdDias = 0;
+    *qtdAnos = 0;
+    *qtdMeses = 0;
+
+    datainicio = quebraData(datainicial);
+    datafim = quebraData(datafinal);
+    validainicio = validaData(datainicio.dia,datainicio.mes,datainicio.ano);
+    validafim = validaData(datafim.dia,datafim.mes,datafim.ano);
+
+    if (validainicio && validafim){
+        *qtdAnos = datafim.ano - datainicio.ano;
+        *qtdMeses = datafim.mes - datainicio.mes;
+        *qtdDias = datafim.dia - datainicio.dia;
+
+        if(datafim.ano - datainicio.ano >= 0 && datafim.mes - datainicio.mes < 0){
+			*qtdAnos = *qtdAnos - 1;
+			*qtdMeses = 12 - (datainicio.mes - datafim.mes);
+		}
+		if(datafim.dia - datainicio.dia < 0){
+			if(*qtdMeses == 0){
+				if(datafim.dia == 28 && datainicio.dia == 29 && datafim.mes == 2 && datainicio.mes == 2 && verificaBissexto(datainicio.ano) && !verificaBissexto(datafim.ano)){
+					*qtdDias = 0;
+					*qtdMeses = 0;
+				} else{
+					*qtdAnos = *qtdAnos - 1;
+					*qtdMeses = 11;
+					*qtdDias = datafim.dia;
+				}
+			}else{
+				*qtdMeses = *qtdMeses - 1;
+				if(datainicio.mes == 1 || datainicio.mes == 3 || datainicio.mes == 5 || datainicio.mes == 7 || datainicio.mes == 8 || datainicio.mes == 10 || datainicio.mes == 12){
+					*qtdDias = (31 - datainicio.dia) + datafim.dia;
+				} else if(datainicio.mes == 4 || datainicio.mes == 6 || datainicio.mes == 9 || datainicio.mes == 11){ // Validando os meses de 30 dias
+					*qtdDias = (30 - datainicio.dia) + datafim.dia;
+				} else if(datainicio.mes == 2 && !verificaBissexto(datainicio.ano)){ // Validando o mês de fevereiro em ano não bissexto
+					if(!verificaBissexto(datafim.ano)){
+						*qtdDias = (28 - datainicio.dia) + datafim.dia;
+					} else {
+						*qtdDias = (28 - datainicio.dia) + datafim.dia + 1;
+					}
+				} else if(datainicio.mes == 2 && verificaBissexto(datainicio.ano)){ // Validando o mês de fevereiro em ano bissexto
+					if(datafim.mes == 2){
+						if(verificaBissexto(datafim.ano)){
+							*qtdDias = 29 - datainicio.dia + datafim.dia;
+						}else{
+							*qtdDias = 28 - datainicio.dia + datafim.dia;
+						}
+					} else{
+						*qtdDias = (29 - datainicio.dia) + datafim.dia;
+					}
+				}
+			}
+    	}
+return 1;
+
+
+
+    }
+    else{
+        return -1;
+    }
 
     //printf("%s\n", datainicial);
     //printf("%s\n", datafinal);
