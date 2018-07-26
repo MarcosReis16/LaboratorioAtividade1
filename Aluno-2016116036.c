@@ -181,11 +181,33 @@ int q3(char *texto, char c, int isCaseSensitive){
 
  */
 int q4(char *strTexto, char *strBusca, int posicoes[30]){
-    int qtdOcorrencias = -1;
 
+    int i,var3,var4,var1,var2,cont,cont2,cont3;
+    var1=var2=var3=var4=cont=cont2=cont3=0;
 
-    return qtdOcorrencias;
+    if(strlen(strBusca)==1){
+        for(i=0;strTexto[i]!='\0';i++){
+            if(strTexto[i]==strBusca[0])
+                cont++;
+        }
+        return cont;
+    }
 
+    for(i = 0;strTexto[i]!='\0'; i++){
+        cont=0;
+    if(strTexto[i]==-95 || strTexto[i]==-87 || strTexto[i]==-83 || strTexto[i]==-77 || strTexto[i]==-70 || strTexto[i]==-93 || strTexto[i]==-89)
+       cont3++;
+        if(strTexto[i] == strBusca[var3]){
+            for(var1=i+1,var4=var3+1;strBusca[var4]==strTexto[var1];var1++,var4++)
+                cont++;
+        }
+        if(cont==strlen(strBusca)-1){
+            posicoes[var2++]=(i+1)-cont3;
+            posicoes[var2++]=var1-cont3;
+            cont2++;
+        }
+    }
+    return cont2;
 }
 
 /*
