@@ -87,52 +87,52 @@ int q2(char *datainicial, char *datafinal, int *qtdDias, int *qtdMeses, int *qtd
 				if(datafim.dia == 28 && datainicio.dia == 29 && datafim.mes == 2 && datainicio.mes == 2 && verificaBissexto(datainicio.ano) && !verificaBissexto(datafim.ano)){
 					*qtdDias = 0;
 					*qtdMeses = 0;
-				} else{
+				}
+				else{
 					*qtdAnos = *qtdAnos - 1;
 					*qtdMeses = 11;
 					*qtdDias = datafim.dia;
 				}
-			}else{
-				*qtdMeses = *qtdMeses - 1;
-				if(datainicio.mes == 1 || datainicio.mes == 3 || datainicio.mes == 5 || datainicio.mes == 7 || datainicio.mes == 8 || datainicio.mes == 10 || datainicio.mes == 12){
-					*qtdDias = (31 - datainicio.dia) + datafim.dia;
-				} else if(datainicio.mes == 4 || datainicio.mes == 6 || datainicio.mes == 9 || datainicio.mes == 11){ // Validando os meses de 30 dias
-					*qtdDias = (30 - datainicio.dia) + datafim.dia;
-				} else if(datainicio.mes == 2 && !verificaBissexto(datainicio.ano)){ // Validando o mês de fevereiro em ano não bissexto
-					if(!verificaBissexto(datafim.ano)){
-						*qtdDias = (28 - datainicio.dia) + datafim.dia;
-					} else {
-						*qtdDias = (28 - datainicio.dia) + datafim.dia + 1;
-					}
-				} else if(datainicio.mes == 2 && verificaBissexto(datainicio.ano)){ // Validando o mês de fevereiro em ano bissexto
-					if(datafim.mes == 2){
-						if(verificaBissexto(datafim.ano)){
-							*qtdDias = 29 - datainicio.dia + datafim.dia;
-						}else{
-							*qtdDias = 28 - datainicio.dia + datafim.dia;
-						}
-					} else{
-						*qtdDias = (29 - datainicio.dia) + datafim.dia;
-					}
-				}
-			}
-    	}
-return 1;
+            }
+        }
+        else{
+            *qtdMeses = *qtdMeses - 1;
+            if(datainicio.mes == 1 || datainicio.mes == 3 || datainicio.mes == 5 || datainicio.mes == 7 || datainicio.mes == 8 || datainicio.mes == 10 || datainicio.mes == 12){
+                *qtdDias = (31 - datainicio.dia) + datafim.dia;
+            }
+            else if(datainicio.mes == 4 || datainicio.mes == 6 || datainicio.mes == 9 || datainicio.mes == 11){ // Validando os meses de 30 dias
+                *qtdDias = (30 - datainicio.dia) + datafim.dia;
+            }
+            else if(datainicio.mes == 2 && !verificaBissexto(datainicio.ano)){ // Validando o mês de fevereiro em ano não bissexto
+                if(!verificaBissexto(datafim.ano)){
+                    *qtdDias = (28 - datainicio.dia) + datafim.dia;
+                }
+                else {
+                    *qtdDias = (28 - datainicio.dia) + datafim.dia + 1;
+                }
+            }
+            else if(datainicio.mes == 2 && verificaBissexto(datainicio.ano)){ // Validando o mês de fevereiro em ano bissexto
+                if(datafim.mes == 2){
+                    if(verificaBissexto(datafim.ano)){
+                        *qtdDias = 29 - datainicio.dia + datafim.dia;
+                    }
+                    else{
+                        *qtdDias = 28 - datainicio.dia + datafim.dia;
+                    }
+                }
+                else{
+                    *qtdDias = (29 - datainicio.dia) + datafim.dia;
+                }
+            }
+        }
 
 
 
     }
-    else{
+    else {
         return -1;
     }
-
-    //printf("%s\n", datainicial);
-    //printf("%s\n", datafinal);
-
-    return 1;
-
 }
-
 
 /*
  Q3 = encontrar caracter em texto
